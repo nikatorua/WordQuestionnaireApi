@@ -19,8 +19,6 @@ app.post('/get-answer', (req, res) => {
         return res.status(400).json({ error: "Please provide a question in JSON body" });
     }
 
-    console.log(`Received question: ${questionText}`);
-
     const sql = `
         SELECT DISTINCT questionid, question, answer
         FROM Questions
