@@ -20,7 +20,7 @@ app.post('/get-answer', (req, res) => {
     }
 
     const sql = `
-        SELECT DISTINCT questionid, question, answer
+        SELECT DISTINCT questionid, question, answer, testid
         FROM Questions
         WHERE question LIKE ?
     `;
@@ -37,7 +37,8 @@ app.post('/get-answer', (req, res) => {
 
         const results = rows.map(r => ({
             matchedQuestion: r.Question,
-            answer: r.Answer
+            answer: r.Answer,
+            testid: r.TestId
         }));
 
         res.json({
