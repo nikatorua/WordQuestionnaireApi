@@ -13,6 +13,7 @@ const cors = require('cors');
 app.use(cors());
 
 app.post('/get-answer', (req, res) => {
+    console.log(`Request received at /get-answer`);
     const questionText = req.body.question?.normalize('NFC').trim();
 
     if (!questionText) {
